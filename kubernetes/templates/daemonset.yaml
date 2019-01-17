@@ -12,6 +12,8 @@ metadata:
     heritage: "{{ .Release.Service }}"
     release: "{{ .Release.Name }}"
 spec:
+  updateStrategy:
+    type: RollingUpdate
   selector:
     matchLabels:
       app: {{ template "kubernetes.name" . }}
@@ -37,7 +39,6 @@ spec:
       containers:
       - name: {{ template "kubernetes.name" . }}
         image:  "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.imagePullPolicy | quote }}
         env:
         - name: FLUENTD_ARGS
           value: --no-supervisor -q
