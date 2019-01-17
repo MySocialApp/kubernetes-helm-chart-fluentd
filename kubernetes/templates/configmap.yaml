@@ -303,6 +303,10 @@ data:
         persistent true
         path /var/log/journald-docker.pos
       </storage>
+      <entry>
+        fields_strip_underscores true
+        fields_lowercase true
+      </entry>
       read_from_head true
       tag docker
     </source>
@@ -315,6 +319,10 @@ data:
         persistent true
         path /var/log/journald-kubelet.pos
       </storage>
+      <entry>
+        fields_strip_underscores true
+        fields_lowercase true
+      </entry>
       read_from_head true
       tag kubelet
     </source>
@@ -327,6 +335,10 @@ data:
         persistent true
         path /var/log/journald-node-problem-detector.pos
       </storage>
+      <entry>
+        fields_strip_underscores true
+        fields_lowercase true
+      </entry>
       read_from_head true
       tag node-problem-detector
     </source>
